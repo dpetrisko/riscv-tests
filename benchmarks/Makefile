@@ -24,12 +24,12 @@ bmarks = \
 	towers \
 	vvadd \
 	multiply \
-	mm \
 	dhrystone \
-	spmv \
-	mt-vvadd \
-	mt-matmul \
-	pmp \
+	#mm \
+	#spmv \
+	#mt-vvadd \
+	#mt-matmul \
+	#pmp \
 
 #--------------------------------------------------------------------
 # Build rules

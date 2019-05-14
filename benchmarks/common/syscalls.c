@@ -47,8 +47,8 @@ void setStats(int enable)
     counters[i++] = csr; \
   } while (0)
 
-  READ_CTR(mcycle);
-  READ_CTR(minstret);
+  //READ_CTR(mcycle);
+  //READ_CTR(minstret);
 
 #undef READ_CTR
 }
@@ -56,6 +56,8 @@ void setStats(int enable)
 void __attribute__((noreturn)) tohost_exit(uintptr_t code)
 {
   tohost = (code << 1) | 1;
+  __asm__ volatile("mv ra, %0"::"r"(code):);
+  __asm__ volatile("uret":::);
   while (1);
 }
 
